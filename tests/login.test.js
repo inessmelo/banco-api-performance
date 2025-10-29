@@ -2,7 +2,9 @@ import http from 'k6/http'
 import { sleep, check } from 'k6'
 
 export const options = {
-    iterations: 40,
+    //iterations: 40,
+    vus: 15,
+    duration: '30s',
     thresholds: {
         http_req_duration: ['p(90)<3', 'p(95)<4']
     }
