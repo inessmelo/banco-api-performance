@@ -20,20 +20,17 @@ export const options = {
 
 export default function () {
     const url = 'http://localhost:3000/login';
-
-    console.log(postLogin)
     const payload = JSON.stringify(postLogin)
 
     const params = {
-        
         headers: {
             'Content-Type': 'application/json',
         },
     }
 
-    const response = http.post(url, payload, params);
+    const resp = http.post(url, payload, params);
 
-    check (response, {
+    check (resp, {
         'Validar o Status da resposta': (r) => r.status === 200,
         'Validar se o Token retorna string': (r) => typeof(r.json().token),
     })
